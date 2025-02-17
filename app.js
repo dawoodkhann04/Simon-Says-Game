@@ -1,5 +1,6 @@
 let gameSeq = [];
 let userSeq =[];
+let highlvl = 0;
 
 let btns = ["yellow" , "red" , "purple" , "green"];
 
@@ -54,6 +55,7 @@ function checkAns(idx){
     else{
         h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press any key to start again!`;
         document.querySelector("body").style.backgroundColor = "red";
+        HighLevel();
         setTimeout(function(){
             document.querySelector("body").style.backgroundColor = "white";
         } , 150);
@@ -81,4 +83,12 @@ function reset(){
     gameSeq = [];
     userSeq = [];
     level = 0;
+}
+
+function HighLevel(){
+    let h3 = document.querySelector(".high");
+    if(highlvl < level){
+        highlvl = level;
+    }
+    h3.innerHTML = ` <b> Highest level : ${highlvl} </b>`;
 }
